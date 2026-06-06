@@ -1,2 +1,6 @@
 # IDE
 .idea
+
+# Secrets
+.env
+master.env
