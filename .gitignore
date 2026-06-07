@@ -4,3 +4,6 @@
 # Secrets
 .env
 master.env
+
+# Artifacts
+test/__pycache__/

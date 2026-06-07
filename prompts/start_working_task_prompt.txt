@@ -1,0 +1,10 @@
+G'day Devin, a user has reported this task: {title}
+
+The notes are as follows:
+"""
+{notes}
+"""
+
+Is this something that deserves our attention? Does it really apply to our repository {repo}? If so, please carry it out as a pull request. Otherwise, let me know why it's fine to leave our repository as-is.
+
+I don't want an ongoing chit-chat, please only answer with a link to the PR or with an excuse as to why you didn't create the PR. Go! I believe in you :)
