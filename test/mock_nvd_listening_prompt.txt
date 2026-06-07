@@ -1,4 +1,0 @@
-Hi Devin, while looking at https://github.com/owen9825/superset, please take a brief glance then come up with a ridiculous
-  vulnerability. Use a few terms relevant to the `superset` repository. Return to me in JSON format "title" for this vulnerability, and "notes".
-
-At the end of your message, please respond with this desired JSON surrounded by 3 backticks (```)

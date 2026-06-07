@@ -6,6 +6,7 @@ from typing import Optional
 
 import requests
 
+from create_task import create_task
 from persistence import get_last_execution_time, set_last_execution_time
 
 from log_config import logger
@@ -38,7 +39,13 @@ if __name__ == "__main__":
         logger.info(f"Waking. The last execution time was {last_run}")
         vulnerabilities = get_vulnerabilities(last_run)
         for vulnerability in vulnerabilities:
-            logger.info(f"There is a bug: {vulnerability['id']} (published {vulnerability['published']})")
+            cve_id = vulnerability["id"]
+            notes = next(
+                (d["value"] for d in vulnerability.get("descriptions", []) if d["lang"] == "en"),
+                "",
+            )
+            logger.info(f"There is a bug: {cve_id} (published {vulnerability['published']})")
+            create_task(title=cve_id, worker="nvd_listener", notes=notes)
 
         set_last_execution_time(_MODULE_NAME, int(time.time()))
         time.sleep(NVD_LISTENER_SLEEP_PERIOD_SECONDS)

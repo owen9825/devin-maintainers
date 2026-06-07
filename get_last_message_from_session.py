@@ -23,7 +23,7 @@ def get_last_message_from_session(session_id: str) -> str:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch the last Devin message from a session")
-    parser.add_argument("session_id", help="Devin session ID")
+    parser.add_argument("--session-id", required=True, help="Devin session ID")
     args = parser.parse_args()
 
     message = get_last_message_from_session(args.session_id)

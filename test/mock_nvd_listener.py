@@ -17,7 +17,7 @@ BASE = "https://api.devin.ai/v3"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 SELF_ID = os.environ["SELF_USER_ID"]
 
-PROMPT_FILE = Path(__file__).parent / "mock_nvd_listening_prompt.txt"
+PROMPT_FILE = Path(__file__).parent.parent / "prompts" / "mock_nvd_listening_prompt.txt"
 
 # Set DEVIN_ENTERPRISE=true if your account has the ViewAccountSessions enterprise permission.
 # docs.devin.ai/api-reference/v3/sessions/get-enterprise-session-messages.md

@@ -11,3 +11,4 @@ class Task(BaseModel):
     worker: Optional[str] = None
     status: Literal["waiting", "in progress", "finished"] = "waiting"
     notes: Optional[str] = None
+    is_pull_request: bool = False

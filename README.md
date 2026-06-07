@@ -62,7 +62,7 @@ python task_master.py
 Manually enqueue a task:
 
 ```bash
-python create_task.py "Fix login redirect bug" task_worker --notes "Affects Safari only"
+python create_task.py --title "Fix login redirect bug" --worker task_worker --notes "Affects Safari only"
 ```
 
 Check the current queue:

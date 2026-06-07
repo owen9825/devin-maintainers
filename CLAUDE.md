@@ -2,13 +2,26 @@
 
 ## Overview
 
-`peon1.py` is a worker script managed by **Devin**, an AI software engineering agent that wraps Claude. It authenticates with the Devin API, creates a session delegating a task to Devin, and polls until the session completes.
+Workers are managed by **Devin**, an AI software engineering agent that wraps Claude. `task_master.py` dequeues tasks from Redis and dispatches them to `task_worker.py`, which opens Devin sessions to carry out the work and review pull requests.
 
 ## Code Style
 
 - Python 3, no external frameworks beyond `requests`
 - Credentials sourced exclusively from environment variables (`DEVIN_API_KEY`, `DEVIN_ORG_ID`, `SELF_USER_ID`)
 - Flat, procedural scripts — no classes unless complexity warrants it
+
+## CLI arguments
+
+Always use named arguments (`--flag`) rather than positional arguments in argparse. Mark required ones with `required=True`.
+
+```python
+# Good
+parser.add_argument("--title", required=True)
+parser.add_argument("--notes")
+
+# Bad
+parser.add_argument("title")
+```
 
 ## Module structure
 
